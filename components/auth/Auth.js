@@ -5,6 +5,7 @@ import axios from 'axios';
 import Login from './innerComponents/Login';
 import Register from './innerComponents/Register';
 import SuccessfulRegistration from './innerComponents/SuccessfulRegistration';
+import PostingCreation from '../SellOut/InnerComponents/PostingModels/PostingCreation'
 
 const Stack = createStackNavigator();
 
@@ -98,6 +99,13 @@ const Auth = (props) => {
                           }} >
                 { props => <SuccessfulRegistration {...props} /> }  
             </Stack.Screen>
+            <Stack.Screen name="PostingCreation"
+                          options={{
+                              headerShown: false
+                          }} >
+                { props => <PostingCreation {...props} /> }
+            </Stack.Screen>
+
         </Stack.Navigator>
         // <Login />
     )

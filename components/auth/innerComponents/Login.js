@@ -55,7 +55,16 @@ const Login = (props) => {
                         </TouchableOpacity>
                     </View>
                 </View>
+
             </View>
+            <View style={{marginBottom: 10}} >  
+                    <View style={{flexDirection: 'row'}}>
+                    <Text style={{ fontSize: 13 }}> Create a new posting! - </Text>
+                        <TouchableOpacity onPress={() => props.navigation.navigate('PostingCreation')} >
+                            <Text style={{fontSize: 13, color: 'black', fontWeight: 'bold'}} > create </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
         </View>
     )
 }
