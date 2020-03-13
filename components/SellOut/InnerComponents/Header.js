@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
         flex: 3,
         marginLeft: 'auto',
         marginRight: 'auto'
-        // justifySelf: 'center'
     },
     addButton: {
         flex: 1

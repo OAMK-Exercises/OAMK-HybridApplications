@@ -16,16 +16,14 @@ const Register = (props) => {
         </Text>
     </View>
 
-    // const onRegistrationSuccess = () => {
         if ( props.registrationSuccess) {
             props.navigation.navigate('SuccessfulRegistration');
         }
-    // }
 
     return (
         <View style={styles.container}>
             <View style={styles.upperBody}>
-                <Text style={{fontSize: 30, marginTop: 50 }} > Register </Text>
+                <Text style={{fontSize: 30, marginTop: 50 }} > SIGN UP </Text>
             </View>
             <View style={styles.lowerBody}>
                 <View>
