@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, 
-         Text, 
          FlatList,
          View } from 'react-native';
 import axios from 'axios';

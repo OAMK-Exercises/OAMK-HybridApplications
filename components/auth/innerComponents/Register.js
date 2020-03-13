@@ -81,7 +81,7 @@ const Register = (props) => {
                     { props.error ? errorView : null }
                     <TouchableOpacity onPress={props.registerHandler} >
                         <View style={styles.registerButton} >
-                            <Text style={{color: 'white', fontSize: 25, fontWeight: 'bold'}}> Register </Text>
+                            <Text style={{color: 'white', fontSize: 25, fontWeight: 'bold'}}> SIGN UP </Text>
                         </View>
                     </TouchableOpacity>
                 </View>

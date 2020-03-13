@@ -42,7 +42,7 @@ const Login = (props) => {
                     <TouchableOpacity   onPress={ props.isSpinner ? null : props.loginHandler } >
                         <View style={styles.loginButton} >
                             {
-                                props.isSpinner ? <ActivityIndicator size='small' color='white' /> : <Text style={{color: 'white', fontSize: 25, fontWeight: 'bold'}}> Login </Text>
+                                props.isSpinner ? <ActivityIndicator size='small' color='white' /> : <Text style={{color: 'white', fontSize: 25, fontWeight: 'bold'}}> SIGN IN </Text>
                             }
                         </View>
                     </TouchableOpacity>
