@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { StyleSheet,
         TouchableOpacity,
          Text, 
@@ -6,100 +6,108 @@ import { StyleSheet,
          TextInput,
          Picker } from 'react-native'
 
+import { render } from 'react-dom';
 
-const PostingCreation = (props) => {
+const Item = Picker.Item;
+
+export default class PostingCreation extends React.Component {
+
+    constructor(props) {
+        super(props);
     
-    return (
-        <View style={styles.container}>
-            <View style={styles.upperBody}>
-                <Text style={{fontSize: 30, marginTop: 50 }} > Create a new item to sell! </Text>
-            </View>
-            <View style={styles.lowerBody}>
-                <View>
-                    <View>
-                        <Text style={styles.label}> Title </Text>
-                        <TextInput style={styles.inputField}
-                                   returnKeyType='next'
-                                   enablesReturnKeyAutomatically={true} />
-                    </View>
-                    <View>
-                        <Text style={styles.label}> Description </Text>
-                        <TextInput style={styles.inputField}
-                                   returnKeyType='next'
-                                   enablesReturnKeyAutomatically={true} />
-                    </View>
-                    <View>
-                        <Text style={styles.label}> Description </Text>
-                        <TextInput style={styles.inputField}
-                                   returnKeyType='next'
-                                   enablesReturnKeyAutomatically={true} />
-                    </View>
-                    <View>
-                        <Text style={styles.label}> Category </Text>
-                        <TextInput style={styles.inputField}
-                                   returnKeyType='next'
-                                   enablesReturnKeyAutomatically={true} />
-                    </View>
-                    <View>
-                        <Text style={styles.label}> DeliveryType </Text>
-                        <Picker
-                            style={{width: 250}}
-                            >
-                            <Picker.Item label="Shipping" value="Shipping" />
-                            <Picker.Item label="Pick Up" value="Pick up" />
-                        </Picker>
-                    </View>
-                    <View>
-                        <Text style={styles.label}> Asking price </Text>
-                        <TextInput style={styles.inputField}
-                                   returnKeyType='next'
-                                   enablesReturnKeyAutomatically={true}
-                                   keyboardType='number-pad'
-                                   /* 
-                                   onChangeText={(text)=> {
-                                    
-                                    let newText = '';
-                                    let numbers = '0123456789';
-                                
-                                    for (var i=0; i < text.length; i++) {
-                                        if(numbers.indexOf(text[i]) > -1 ) {
-                                            newText = newText + text[i];
-                                        }
-                                        else {
-                                            // your call back function
-                                            alert("please enter numbers only");
-                                        }
-                                    }
-                                    this.setState({ myNumber: newText });
-                                   }}
-                                   */
-                                   maxLength={5}/>
-                    </View>
 
-                    <TouchableOpacity>
-                        <View style={styles.creatingButton} >
-                            <Text style={{color: 'white', fontSize: 25, fontWeight: 'bold'}}> CREATE </Text>
+        this.state = {
+            pickerSelection: ''
+    }
+}
+    
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <View style={styles.upperBody}>
+                    <Text style={{fontSize: 30, marginTop: 50 }} > Create a new item to sell! </Text>
+                </View>
+                <View style={styles.lowerBody}>
+                    <View>
+                        <View>
+                            <Text style={styles.label}> Title </Text>
+                            <TextInput style={styles.inputField}
+                                    returnKeyType='next'
+                                    enablesReturnKeyAutomatically={true} />
                         </View>
-                    </TouchableOpacity>
-                    
+                        <View>
+                            <Text style={styles.label}> Description </Text>
+                            <TextInput style={styles.inputField}
+                                    returnKeyType='next'
+                                    enablesReturnKeyAutomatically={true} />
+                        </View>
+                        <View>
+                            <Text style={styles.label}> Description </Text>
+                            <TextInput style={styles.inputField}
+                                    returnKeyType='next'
+                                    enablesReturnKeyAutomatically={true} />
+                        </View>
+                        <View>
+                            <Text style={styles.label}> Category </Text>
+                            <TextInput style={styles.inputField}
+                                    returnKeyType='next'
+                                    enablesReturnKeyAutomatically={true} />
+                        </View>
+                        <View>
+                            <Text style={styles.label}> DeliveryType </Text>
+                            <Picker
+                                style={{borderWidth: 1}}
+                                selectedValue={this.state.pickerSelection}
+                                onValueChange={(itemValue, itemIndex) => this.setState({pickerSelection: itemValue})}>
+                                    <Picker.Item label = "Shipping" value= "Shipping" />
+                                    <Picker.Item label = "Pick up" value = "Pick up" />
+                            </Picker>
+                        </View>
+                        <View>
+                            <Text style={styles.label}> Asking price </Text>
+                            <TextInput style={styles.inputField}
+                                    returnKeyType='next'
+                                    enablesReturnKeyAutomatically={true}
+                                    keyboardType='number-pad'
+                                    /* 
+                                    onChangeText={(text)=> {
+                                        
+                                        let newText = '';
+                                        let numbers = '0123456789';
+                                    
+                                        for (var i=0; i < text.length; i++) {
+                                            if(numbers.indexOf(text[i]) > -1 ) {
+                                                newText = newText + text[i];
+                                            }
+                                            else {
+                                                // your call back function
+                                                alert("please enter numbers only");
+                                            }
+                                        }
+                                        this.setState({ myNumber: newText });
+                                    }}
+                                    */
+                                    maxLength={5}/>
+                        </View>
+
+                        <TouchableOpacity>
+                            <View style={styles.creatingButton} >
+                                <Text style={{color: 'white', fontSize: 25, fontWeight: 'bold'}}> CREATE </Text>
+                            </View>
+                        </TouchableOpacity>
+                        
+                        
+                    </View>
                     
                 </View>
                 
-            </View>
-            
 
-        </View>
-    )
+            </View>
+        );
+    }
 
 }
-
-
-
-
-
-export default PostingCreation
-
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -138,5 +146,13 @@ const styles = StyleSheet.create({
         marginTop: 10,
         height: 50,
         width: 'auto',
-    }
-})
+    },
+});
+
+
+
+
+
+
+
+
